@@ -27,5 +27,5 @@ An interactive quiz application powered by AI (OpenAI API) where users can test 
 
 ---
 
-## 📁 Folder Structure
+
 
