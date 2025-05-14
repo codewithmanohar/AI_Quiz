@@ -1,8 +1,12 @@
 import { GoogleGenAI } from "@google/genai";
+import dotenv from "dotenv" ; 
+dotenv.config();
 
-const ai = new GoogleGenAI({apiKey : "AIzaSyBW4FMooGK8mBkYJezk5wtQ1TAVdO1iYN4"}); 
+const API_KEY = process.env.GEMINI_KEY;
 
-async function generateQuestions(numQuestions, difficulty, programmingLanguage) {
+const ai = new GoogleGenAI({apiKey : API_KEY}); 
+
+async function generateQuestions(numQuestions, difficulty, language) {
 
   const systemInstruction = `You are an expert in generating single-choice questions for programming languages. The user will specify the number of questions, the difficulty level (e.g., easy, medium, hard), and the programming language. Your task is to generate the specified number of unique single-choice questions in the requested language and difficulty. Each question should have four plausible options, and you must clearly indicate the index of the correct answer (0-based). The final output should be a JSON array of question objects in the following format:
 
@@ -17,7 +21,7 @@ async function generateQuestions(numQuestions, difficulty, programmingLanguage) 
 
 Ensure the questions are relevant to the specified programming language and difficulty level. Avoid generating duplicate questions.`;
 
-  const prompt = `Generate ${numQuestions} single-choice questions for ${programmingLanguage} with a difficulty level of ${difficulty}.`;
+  const prompt = `Generate ${numQuestions} single-choice questions for ${language} with a difficulty level of ${difficulty}.`;
 
   try {
     const result = await ai.models.generateContent({
@@ -70,26 +74,9 @@ Ensure the questions are relevant to the specified programming language and diff
       return null;
     }
   } catch (error) {
-    console.error("Error generating content:", error);
+    console.error("Error generating content:", error.message);
     return null;
   }
 }
-
-
-
-// async function runExample() {
-//   const numberOfQuestions = 3;
-//   const questionDifficulty = "medium";
-//   const language = "Python";
-
-//   const generatedQuestions = await generateSingleChoiceQuestions(numberOfQuestions, questionDifficulty, language);
-
-//   if (generatedQuestions) {
-//     console.log(JSON.stringify(generatedQuestions, null, 2));
-//   }
-// }
-
-  // runExample();
-
 
 export default generateQuestions;

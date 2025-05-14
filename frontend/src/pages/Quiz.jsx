@@ -42,7 +42,6 @@ const Quiz = () => {
     updatedAnswers[currentQuestion] = option;
     setUserAnswers(updatedAnswers);
 
-    console.log(question);
     if (option === question.options[question.correctIndex]) {
       setScore((prev) => prev + 1);
     }

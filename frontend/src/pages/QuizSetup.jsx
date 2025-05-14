@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuiz } from "../Context/QuizContext"
-import generateQuestions from "../Services/generate";
 import QuizLoadingScreen from "../Components/QuizLoadingScreen";
+import axios from "axios";
 
 
 const QuizSetup = () => {
@@ -27,7 +27,9 @@ const QuizSetup = () => {
     setParams(userParams);
     try {
       setLoading(true)
-      const questions = await generateQuestions(userParams.numQuestions , userParams.difficulty , userParams.language);
+      const response = await axios.post("http://localhost:8000/api/ai/get-question", userParams);
+      const questions = response.data ; 
+
       if(questions){
         setQuizData(questions);
         navigate("/quiz");
@@ -56,10 +58,11 @@ const QuizSetup = () => {
               required
               className="w-full p-2 bg-gray-700 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              <option value="">Select a language</option>
+              <option value="">Select a language </option>
               <option value="JavaScript">JavaScript</option>
               <option value="Python">Python</option>
               <option value="C++">C++</option>
+              <option value="C">C</option>
               <option value="Java">Java</option>
               <option value="HTML/CSS">HTML/CSS</option>
             </select>
