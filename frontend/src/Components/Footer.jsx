@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Brand Info */}
         <div>
-          <h2 className="text-2xl font-bold text-blue-400">AI Quiz Master</h2>
+          <h2 className="text-2xl font-bold text-blue-400">QuizForge</h2>
           <p className="mt-2 text-sm text-gray-400">
             Test your programming skills with AI-generated questions. Fast, smart, and fun.
           </p>
@@ -34,7 +34,7 @@ const Footer = () => {
       </div>
 
       <div className="text-center text-sm text-gray-500 mt-8 border-t border-gray-700 pt-4">
-        © {new Date().getFullYear()} AI Quiz Master. Built with 💙 by Manohar Kumar.
+        © {new Date().getFullYear()} QuizForge. Built with 💙 by Manohar Kumar.
       </div>
     </footer>
   );

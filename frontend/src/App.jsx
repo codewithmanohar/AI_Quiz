@@ -1,9 +1,9 @@
 import { QuizProvider } from "./Context/QuizContext"
 import { Route , Routes } from "react-router-dom"
-import Home from "./Pages/Home"
+import Home from "./pages/Home"
 import QuizSetup from "./pages/QuizSetup"
 import Quiz from "./pages/Quiz"
-import Result from "./Pages/Result"
+import Result from "./pages/Result"
 import NotFound from "./pages/NotFound"
 import Footer from "./Components/Footer"
 

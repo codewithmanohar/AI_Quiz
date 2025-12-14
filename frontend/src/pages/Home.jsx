@@ -12,7 +12,7 @@ const Home = () => {
     <div className="min-h-screen bg-gray-900 text-white flex flex-col items-center justify-center px-6 py-12">
       {/* Header */}
       <h1 className="text-4xl md:text-5xl font-bold text-blue-500 mb-4 text-center">
-        Welcome to AI Quiz Master
+        Welcome to QuizForge
       </h1>
       <p className="text-gray-300 text-lg md:text-xl mb-10 text-center max-w-2xl">
         Boost your coding knowledge with AI-generated questions. Choose your tech stack, difficulty, and challenge your brain!
