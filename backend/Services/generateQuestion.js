@@ -25,7 +25,8 @@ Ensure the questions are relevant to the specified programming language and diff
 
   try {
     const result = await ai.models.generateContent({
-      model: "gemini-2.0-flash", // Using "gemini-pro" for potentially better structured output
+      model: process.env.GEMINI_MODEL, 
+      // Using "gemini-pro" for potentially better structured output
       contents: prompt,
       config : {
         temperature : 0.7 ,  // Adjust as needed
